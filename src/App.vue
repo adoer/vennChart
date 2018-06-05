@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <container/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import container from './components/container'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    container
   }
 }
 </script>
 
 <style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
