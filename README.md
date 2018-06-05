@@ -1,2 +1,2 @@
-# vennChart
-Venn diagram 维恩图
+# VennChart
+Venn Chart 维恩图
