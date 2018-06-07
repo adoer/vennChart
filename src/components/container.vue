@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <venn-chart></venn-chart>
+    <input type="number" v-model.number="inputNum">
+    <venn-chart :option='option' :data='data'></venn-chart>
   </div>
 </template>
 
@@ -13,7 +14,26 @@ export default {
   },
   data () {
     return {
+      inputNum: 100,
+      data: {
+        num: 123,
+        percent: '20%'
+      }
     }
+  },
+  computed: {
+    option () {
+      return {
+        width: this.inputNum,
+        height: 30,
+        style: 'fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)'
+      }
+    }
+  },
+  watch: {
+    // inputNum: (val) => {
+    //   console.log(JSON.stringify(val))
+    // }
   }
 }
 </script>
