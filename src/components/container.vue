@@ -1,8 +1,11 @@
 <template>
 <div>
-  <input type="number" v-model.number="inputNum">
+  <div style="margin-bottom:10px">
+    <span>Width:</span> <input type="number" v-model.number="inputW">
+    <span>Height:</span> <input type="number" v-model.number="inputH">
+  </div>
   <div class="container" :style="containerStyle">
-    <venn-chart :option='option' :data='data'></venn-chart>
+    <venn-chart ref='venn' :option='option'></venn-chart>
   </div>
 </div>
 </template>
@@ -16,35 +19,49 @@ export default {
   },
   data () {
     return {
-      inputNum: 100,
-      containerStyle: {
-        'border': '1px solid #ccc',
-        'width': '500px',
-        'margin': 'auto',
-        'height': '300px'
-      },
-      data: {
-        num: 123,
-        percent: '20%'
+      inputW: 500,
+      inputH: 300,
+      option: {
+        // style: {
+        //   'stroke-width': 1,
+        //   'fill': 'rgba(128, 211, 255, 0.5)',
+        //   'stroke': 'rgba(128, 211, 255, 1)'
+        // },
+        // 第一个韦恩图值 第二个韦恩图值 公共值
+        commonVal: 16,
+        series: [
+          {
+            val: 123,
+            style: {
+              'fill': 'rgba(128, 211, 255, 0.5)',
+              'stroke': 'rgba(128, 211, 255, 1)'
+            }
+          },
+          {
+            val: 123,
+            style: {
+              'fill': 'rgba(225, 117, 159, 0.5)',
+              'stroke': 'rgba(225, 117, 159, 1)'
+            }
+          }
+        ]
       }
     }
   },
   computed: {
-    option () {
+    containerStyle () {
       return {
-        cy: this.inputNum,
-        cx: 40,
-        r: 40,
-        'stroke-width': 1,
-        fill: 'rgba(128, 211, 255, 0.5)',
-        stroke: 'rgba(128, 211, 255, 1)'
+        'width': this.inputW + 'px',
+        'height': this.inputH + 'px',
+        'margin': 'auto',
+        'background': '#f8f8f8'
       }
     }
   },
   watch: {
-    // inputNum: (val) => {
-    //   console.log(JSON.stringify(val))
-    // }
+    inputH: function (val) {
+      this.$refs.venn.refresh()
+    }
   },
   mounted () {
   }
