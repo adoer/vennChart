@@ -2,7 +2,7 @@
 <div>
   <input type="number" v-model.number="inputNum">
   <div class="container" :style="containerStyle">
-    <venn-chart :option='option' :data='data'></venn-chart>
+    <venn-chart :option='option'></venn-chart>
   </div>
 </div>
 </template>
@@ -23,23 +23,36 @@ export default {
         'margin': 'auto',
         'height': '300px'
       },
-      data: {
-        num: 123,
-        percent: '20%'
+      option: {
+        // style: {
+        //   'stroke-width': 1,
+        //   'fill': 'rgba(128, 211, 255, 0.5)',
+        //   'stroke': 'rgba(128, 211, 255, 1)'
+        // },
+        // 第一个韦恩图值 第二个韦恩图值 公共值
+        commonVal: 16,
+        series: [
+          {
+            val: 123,
+            style: {
+              'stroke-width': 1,
+              'fill': 'rgba(128, 211, 255, 0.5)',
+              'stroke': 'rgba(128, 211, 255, 1)'
+            }
+          },
+          {
+            val: 123,
+            style: {
+              'stroke-width': 1,
+              'fill': 'rgba(225, 117, 159, 0.5)',
+              'stroke': 'rgba(225, 117, 159, 1)'
+            }
+          }
+        ]
       }
     }
   },
   computed: {
-    option () {
-      return {
-        cy: this.inputNum,
-        cx: 40,
-        r: 40,
-        'stroke-width': 1,
-        fill: 'rgba(128, 211, 255, 0.5)',
-        stroke: 'rgba(128, 211, 255, 1)'
-      }
-    }
   },
   watch: {
     // inputNum: (val) => {
