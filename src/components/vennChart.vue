@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg xmlns="http://www.w3.org/2000/svg" id="venn-chart" version="1.1" height="200"></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" id="venn-chart" version="1.1"></svg>
   </div>
 </template>
 
@@ -47,7 +47,9 @@ export default {
       }
     },
     init () {
-      this.rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
+      this.venn.style.height = this.$el.parentNode.offsetHeight + 'px'
+      this.venn.style.width = this.$el.parentNode.offsetWidth + 'px'
+      this.rect = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
       this.setAttr()
       this.venn.appendChild(this.rect)
     }
