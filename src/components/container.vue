@@ -28,20 +28,27 @@ export default {
         //   'stroke': 'rgba(128, 211, 255, 1)'
         // },
         // 第一个韦恩图值 第二个韦恩图值 公共值
-        commonVal: 16,
+        intersection: {
+          val: 1666,
+          style: {
+            'fill': 'blue',
+            'font-size': '24px',
+            'font-weight': 'bold'
+          }
+        },
         series: [
           {
             val: 123,
-            style: {
-              'fill': 'rgba(128, 211, 255, 0.5)',
-              'stroke': 'rgba(128, 211, 255, 1)'
+            styleObj: {
+              fill: 'rgba(128, 211, 255, 0.5)',
+              stroke: 'rgba(128, 211, 255, 1)'
             }
           },
           {
             val: 123,
-            style: {
-              'fill': 'rgba(225, 117, 159, 0.5)',
-              'stroke': 'rgba(225, 117, 159, 1)'
+            styleObj: {
+              fill: 'rgba(225, 117, 159, 0.5)',
+              stroke: 'rgba(225, 117, 159, 1)'
             }
           }
         ]
